@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class serveur {
+public class Serveur {
     //static ServerSocket variable
     private static ServerSocket server;
     //socket server port on which it will listen

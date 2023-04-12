@@ -5,12 +5,36 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="univ_lorraine.iut.java.privatechat.controller.LoginController">
-   <children>
-      <Label text="Login" />
-      <Button fx:id="btnLogin" text="login" onAction="#login"/>
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<VBox alignment="CENTER" spacing="50.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="univ_lorraine.iut.java.privatechat.controller.LoginController">
+
+
+   <Label styleClass="header-section" layoutX="244.0" layoutY="60.0" prefHeight="50.0" prefWidth="210.0" style="-fx-text-fill: #9370db; " text="Bienvenue ! " >
+      <font>
+         <Font name="SansSerif Regular" size="30" />
+      </font>
+   </Label>
+
+   <TextField fx:id="nomUt" layoutX="150.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0" promptText="Nom d'utilisateur" style="-fx-border-width: 1; -fx-border-color: grey; -fx-border-radius: 5;">
+      <font>
+         <Font name="SansSerif Regular" size="14.0" />
+      </font>
+   </TextField>
+
+   <PasswordField fx:id="mdp" layoutX="150.0" layoutY="140.0" prefHeight="30.0" prefWidth="300.0" promptText="Mot de passe" style="-fx-border-width: 1; -fx-border-color: grey; -fx-border-radius: 5;">
+      <font>
+         <Font name="SansSerif Regular" size="14.0" />
+      </font>
+   </PasswordField>
+
+   <Button fx:id="btnLogin" onAction="#login" layoutX="335.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right, #d8bfd8, #dda0dd); -fx-text-fill: white; -fx-border-radius: 5;  -fx-border-color: white;" text="Connexion">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+
 </VBox>
