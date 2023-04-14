@@ -6,7 +6,9 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
 public class client {
+
     public static void main(String[] args)
             throws UnknownHostException, IOException, ClassNotFoundException, InterruptedException {
         // get the localhost IP address, if server is running on some other IP, you need
@@ -38,5 +40,4 @@ public class client {
         Thread.sleep(2000);
 
     }
-
 }
