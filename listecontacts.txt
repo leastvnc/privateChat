@@ -1,9 +1,5 @@
-Contact1
-Contact2
-Contact3
-Contact4
-Contact5
-Contact6
+pseudo( addip,port )
+caroline( 192.64.59.131,98744 )
+Rawane( 192.64.59.136,59874 )
+Léa ( 138.46.5.78, 35984 )
 
-a
-2

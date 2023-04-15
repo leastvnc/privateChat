@@ -1,43 +1,44 @@
 package ClientServeur;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class client {
 
-    public static void main(String[] args)
-            throws UnknownHostException, IOException, ClassNotFoundException, InterruptedException {
-        // get the localhost IP address, if server is running on some other IP, you need
-        // to use that
-        InetAddress host = InetAddress.getLocalHost();
-        Socket socket = null;
-        ObjectOutputStream oos = null;
-        ObjectInputStream ois = null;
+    public static void main(String[] args) throws IOException {
+        Socket clientSocket = null;
+        try {
+            // Nous nous contectons au serveur sur le port 12345
+            clientSocket = new Socket("localhost",12345);
+        } catch (UnknownHostException e) {
+            System.err.println("Le serveur inconnu : " + e.getMessage());
+            System.exit(1);
+        } catch (IOException e) {
+            System.err.println("Oh une erreur et survenue lors de la connexion au serveur : " + e.getMessage());
+            System.exit(1);
+        }
 
-        // establish socket connection to server
-        socket = new Socket(host.getHostName(), 9876);
-        // write to socket using ObjectOutputStream
-        oos = new ObjectOutputStream(socket.getOutputStream());
-        System.out.println("Sending request to Socket Server");
+        // Nous retrouvons ici les flux d'entrée
+        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        // Nous retrouvons ici les flux de sortie
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 
-        oos.writeObject("Ping");
-        oos.flush();
-        // read the server response message
-        ois = new ObjectInputStream(socket.getInputStream());
-        String message = (String) ois.readObject();
-        System.out.println("Message: " + message);
+        // Lecture de l'entrée utilisateur
+        BufferedReader inputUtilisateur = new BufferedReader(new InputStreamReader(System.in));
+        String messageUtilisateur = null;
+        // Boucle while permettant l'envoi de messages au serveur
+        while ((messageUtilisateur = inputUtilisateur.readLine()) != null) {
+            out.println(messageUtilisateur);
+            System.out.println("Message envoyé : " + messageUtilisateur);
+            // Nous receptionnons ici la réponse émise par le serveur
+            System.out.println("Réponse du serveur : " + in.readLine());
+        }
 
-        oos.writeObject("Test 2");
-        oos.flush();
-
-        // close resources
-        ois.close();
-        oos.close();
-        Thread.sleep(2000);
-
+        // Nous procédons à la fermeture des flux et du socket client
+        out.close();
+        in.close();
+        clientSocket.close();
     }
 }

@@ -38,7 +38,7 @@
    </PasswordField>
    <Text fx:id="errorLabel" fill="red" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0">
       <font>
-         <Font name="Ezhuthu Regular" size="42.0" />
+         <Font name="Ezhuthu Regular" size="30.0" />
       </font>
    </Text>
    <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #38978e; -fx-border-radius: 0; -fx-max-width: 250;" text="Connexion">

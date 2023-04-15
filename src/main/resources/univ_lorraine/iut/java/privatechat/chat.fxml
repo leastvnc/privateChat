@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -17,8 +16,8 @@
       </Text>
       <ListView fx:id="liste" layoutX="2.0" layoutY="103.0" prefHeight="180.0" prefWidth="194.0" />
       <TextField fx:id="champRecherche" layoutX="2.0" layoutY="72.0" prefHeight="24.0" prefWidth="125.0" promptText="pseudo" />
-      <TextField fx:id="nvcontact" layoutX="167.0" layoutY="320.0" prefHeight="24.0" prefWidth="133.0" promptText="pseudo" />
-      <Button fx:id="lanceRecherche" layoutX="132.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #38978e;" text="Rechercher" />
+      <TextField fx:id="usr" layoutX="167.0" layoutY="320.0" prefHeight="24.0" prefWidth="133.0" promptText="pseudo" />
+      <Button fx:id="lanceRecherche" onAction="#rechercher" layoutX="132.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #38978e;" text="Rechercher" />
       <Button fx:id="btnAjouter" layoutX="191.0" layoutY="350.0" mnemonicParsing="false" onAction="#ajouter" style="-fx-background-color: #38978e;" text="Ajouter" />
       <Button fx:id="btnAffCont" layoutX="19.0" layoutY="38.0" mnemonicParsing="false" onAction="#afficherContacts" style="-fx-background-color: #38978e;" text="Afficher mes contacts" />
       <Button fx:id="btnBackLogin" layoutX="474.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #38978e;" text="Déconnexion" />
@@ -27,10 +26,10 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="port" layoutX="10.0" layoutY="350.0" prefHeight="18.0" prefWidth="145.0" promptText="Port" />
+      <TextField fx:id="porttxt" layoutX="10.0" layoutY="350.0" prefHeight="18.0" prefWidth="145.0" promptText="Port" />
       <TextField fx:id="adIP" layoutX="10.0" layoutY="320.0" prefHeight="24.0" prefWidth="145.0" promptText="Adresse IP" />
       <TextField fx:id="message" layoutX="239.0" layoutY="253.0" prefHeight="24.0" prefWidth="346.0" promptText="Ton message ..." />
-      <Button fx:id="envoyer" layoutX="514.0" layoutY="282.0" mnemonicParsing="false" style="-fx-background-color: #38978e;" text="Envoyer" />
-      <TextArea layoutX="239.0" layoutY="59.0" prefHeight="180.0" prefWidth="346.0" />
+      <Button fx:id="envoyer" layoutX="514.0" layoutY="282.0" mnemonicParsing="false" onAction="#ajouterMessage" style="-fx-background-color: #38978e;" text="Envoyer" />
+      <ListView fx:id="ListeMsg"  layoutX="247.0" layoutY="84.0" prefHeight="162.0" prefWidth="330.0" />
    </children>
 </Pane>
